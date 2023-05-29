@@ -14,3 +14,12 @@ Furthermore, we prioritize thorough testing of the different views to verify the
 We develop views for classrooms, implementing authentication and authorization mechanisms using the default Django Rest Framework (DRF) authentication. By leveraging DRF's built-in authentication features, we ensure secure access and control over the classroom-related functionalities.
 
 In addition, we meticulously craft unit tests specifically focused on creating classrooms. These tests rigorously assess the behavior and accuracy of the classroom creation process, ensuring that it functions as expected. By thoroughly testing this functionality, we can identify and address any potential issues, guaranteeing a reliable and error-free classroom creation experience.
+
+To run the Project:
+> pip install requirements.txt
+
+>python manage.py makemigrations
+
+>python manage.py migrate
+
+>python manage.py runserver

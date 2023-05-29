@@ -2,7 +2,7 @@ import pytest
 from django.test import TestCase
 from classroom.models import Student, ClassRoom
 from mixer.backend.django import mixer
-
+from hypothesis import strategies as st, given
 
 pytestmark = pytest.mark.django_db
 
@@ -26,15 +26,29 @@ class TestStudentModel(TestCase):
         student_result = Student.objects.last()
         assert str(student_result) == "jimmy"
 
-    def test_grade_fail(self):
-        mixer.blend(Student, average_score=10)
-        student_result = Student.objects.last()
-        assert student_result.get_grade() == "Fail"
 
-    def test_grade_pass(self):
-        mixer.blend(Student, average_score=80)
-        student_result = Student.objects.last()
-        assert student_result.get_grade(), "Excellent"
+@given(st.floats(min_value=0, max_value=39.99))
+def test_grade_fail(fail_score):
+    print(fail_score)
+    mixer.blend(Student, average_score=fail_score)
+    student_result = Student.objects.last()
+    assert student_result.get_grade() == "Fail"
+
+
+@given(st.floats(min_value=40, max_value=70))
+def test_grade_pass(pass_grade):
+    mixer.blend(Student, average_score=pass_grade)
+    student_result = Student.objects.last()
+    assert student_result.get_grade(), "Excellent"
+
+
+# @given(st.characters())
+# def test_slugify(name):
+#     print(name)
+#     student_1 = mixer.blend(Student, first_name=name)
+#     student_1.save()
+#     student_result = Student.objects.last()
+#     assert len(str(student_result.usernmae)) == len(name)
 
 
 class TestClassroomModel:

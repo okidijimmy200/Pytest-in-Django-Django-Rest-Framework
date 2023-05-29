@@ -9,4 +9,5 @@ omit =
     *asgi.py
     *tests.py
     */migrations/*
+    */tests/*
     

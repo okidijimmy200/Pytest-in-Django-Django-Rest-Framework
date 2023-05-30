@@ -1,5 +1,4 @@
-[![Python application](https://github.com/okidijimmy200/Pytest-in-Django-Django-Rest-Framework
-/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/okidijimmy200/Pytest-in-Django-Django-Rest-Framework/actions/workflows/build.yml)
+[![Python application](https://github.com/okidijimmy200/Pytest-in-Django-Django-Rest-Framework/actions/workflows/build.yaml/badge.svg)](https://github.com/okidijimmy200/Pytest-in-Django-Django-Rest-Framework/actions/workflows/build.yaml)
 This application aims to dig into the inner workings of django and django-restframework using pytest.
 
 We build a school application that features classrooms with individual student attributes, including performance metrics. We developed a classroom and student models with relevant attributes and conducting unittests for the models inttest.py file. We create unittests for students, testing student grades.
